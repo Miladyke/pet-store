@@ -4,10 +4,32 @@ $fname = $_POST['f_name'];
 $lname = $_POST['l_name'];
 $email = $_POST['e_mail'];
 $passw = $_POST['p_assw'];
+$sql_validete_email="
+select count(id) as total
+from users
+where email='$email' and 
+status =true
+
+";
+$ans = pg_query($conn,$sql_validete_email);
+if($ans){//$ans == true
+$row= pg_fetch_assoc($ans);
+if($row['total']>0){
+    echo"user already exists!!";
+}else{
 $sql = "INSERT INTO users
     (firstname,lastname,email,password)
-    VALUES ('$fname','$lname','$email','$passw')";
+    VALUES ('$fname','$lname','$email','$passw')
+    ";
     $ans = pg_query($conn,$sql);
-    if($ans){echo "user has been created successfully";}
-    else{echo"error";}
+    if($ans){
+        echo "user has been created successfully";
+    }else{
+        echo"error";
+    }   
+   }
+}else{
+    echo"Query Error";
+}
  ?>
+
