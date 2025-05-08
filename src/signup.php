@@ -31,7 +31,8 @@ if($ans){//$ans==true
 ";
 $ans = pg_query($conn, $sql);
 if($ans){
-    echo"user has been created successfully";
+    echo"<script>alert('User has been created.Go to login')</script>";
+    header('Refresh:0;URL=http://localhost/pet-store/src/signin.html');
 }else{
     echo "Error";
 }
