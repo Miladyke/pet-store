@@ -5,6 +5,7 @@ $passw = $_POST['p_assw'];
 //$hashed_password = password_hash($passw, PASSWORD_DEFAULT);
 $hashed_password = $passw
 $hashed_password = password_hash($passw, PASSWORD_DEFAULT);
+
 $sql="
 select 
 u.id,
