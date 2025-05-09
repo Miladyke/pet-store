@@ -22,25 +22,9 @@ if($ans){
     echo"<script>alert('User has been created.Go to login')</script>";
     header('Refresh:0;URL=http://localhost/pet-store/src/signin.html');
 }else{
-<<<<<<< HEAD
-$sql = "INSERT INTO users
-    (firstname,lastname,email,password)
-    VALUES ('$fname','$lname','$email','$hashed_password')
-    ";
-    $ans = pg_query($conn,$sql);
-    if($ans){
-       // echo "user has been created successfully";
-       echo "<script>alert('user has been created successfully')</script>";
-       header('Refresh:0;url=http://localhost/pet-store/src/signin.html');
-    }else{
-        echo"error";
-    }   
-   }
-}else{
-    echo"Query Error";
-=======
+
     echo "Error";
->>>>>>> bafc4380bc7376a4ba57d0bf57c3914674a86913
+
 }
     }
 
